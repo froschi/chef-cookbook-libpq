@@ -1,11 +1,13 @@
+include_recipe "libssl"
+include_recipe "libldap"
+include_recipe "libgssapi-krb5"
+include_recipe "libkrb5"
+include_recipe "libcomerr"
+
 packages = Array.new
 
 case node[:lsb][:codename]
-when "lucid"
-  packages |= %w/
-    libpq5
-  /
-when "precise"
+when "lucid", "precise"
   packages |= %w/
     libpq5
   /
